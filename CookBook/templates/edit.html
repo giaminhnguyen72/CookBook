@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST" id="manualForm" name="manualForm">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Recipe Name</label>
+      <input type="text" class="form-control" id="recipeName" name="recipeName" placeholder="Chicken Pot Pie" value='{{recipe.name}}'>
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput">Cooking Time</label>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <input type="text" class="form-control" id="cookingTime" name="cookingTime" placeholder="5">
+                <select class="custom-select" name="unit" id="unit">
+                    <option value="1" name="1">secs</option>
+                    <option value="2" name="2">mins</option>
+                    <option value="3"name="3">hrs</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput">Ingredients</label>
+      <input type="text" class="form-control" id="ingredient" name="ingredient" placeholder="Walmart Chicken Pot Pie" value='{{recipe.ingredient}}'>
+  </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput">Description</label>
+        <input type="text" class="form-control" id="description" name="description"placeholder="It is a delicious Chicken Pot Pie" value='{{recipe.description}}'>
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput">Directions</label>
+        <input type="text" class="form-control" id="direction" name="direction" placeholder="Buy from Walmart and microwave" value='{{recipe.directions}}'>
+    </div>
+    <button class="btn btn-primary" href="{{ url_for('views.create') }}" role="button" id="submitRecipe" name="submitRecipe"> Submit Recipe</button>
+    <a class="btn btn-primary" href="{{ url_for('views.dashboard') }}" role="button" id="cancel" name="cancel">Cancel</a>
+  </form>
+{% endblock %}

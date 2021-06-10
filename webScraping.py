@@ -1,0 +1,2 @@
+def webScraping():
+    return "asfaf"

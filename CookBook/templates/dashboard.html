@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}
+RecipeWare 
+{% endblock %}
+{% block content %}
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Recipe</th>
+        <th scope="col">Cooking Time</th>
+        <th scope="col">Created:</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% set i = 1 %}
+      {% for recipe in user.recipes %}
+      <tr>
+        
+        <th scope="row">{{ loop.index }}</th>
+        <td>{{recipe.name}}</td>
+        <td>{{recipe.cookingTime}}</td>
+        <td>
+
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="/dashboard/{{recipe.id}}"><button type="button" class="btn btn-primary">View</button></a>
+            <a href="/dashboard/edit/{{recipe.id}}"><button type="button" class="btn btn-primary">Edit</button></a>
+            <a href="/delete/{{recipe.id}}"><button type="button" class="btn btn-primary">Delete</button></a>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div>
+    <a type="button" class="btn btn-primary btn-lg btn-block" href="{{url_for('views.create')}}">Create New Recipe</a>
+  </div>
+  
+ 
+{% endblock %}
